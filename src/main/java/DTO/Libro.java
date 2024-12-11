@@ -60,4 +60,13 @@ public class Libro {
         this.ejemplars = ejemplars;
     }
 
+    @Override
+    public String toString() {
+        return "Libro{" +
+                "isbn='" + isbn + '\'' +
+                ", titulo='" + titulo + '\'' +
+                ", autor='" + autor + '\'' +
+                ", ejemplars=" + ejemplars +
+                '}';
+    }
 }

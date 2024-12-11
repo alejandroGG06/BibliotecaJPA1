@@ -40,13 +40,13 @@ public class PrestamoServ {
     }
 
 
-    public void listarPrestamosMemoria() {
+    public void listarPrestamos() {
         for (Prestamo prestamo : memoria) {
             System.out.println(prestamo);
         }
     }
 
-    public void registrarPrestamoMemoria() {
+    public void registrarPrestamo() {
         System.out.println("Introduce el id del usuario: ");
         int idUsuario = sc.nextInt();
         System.out.println("Introduce el id del ejemplar: ");
@@ -55,12 +55,12 @@ public class PrestamoServ {
         Usuario usuario = usuarioDAO.getUsuarioId(idUsuario);
         Ejemplar ejemplar = ejemplarDAO.getEjemplarId(idEjemplar);
 
-        // Verificar que el ejemplar esté disponible
+        // Verificar que este disponible
         if (!ejemplar.getEstado().equals("Disponible")) {
             System.out.println("El ejemplar no está disponible.");
         }
 
-        // Verificar que el usuario no tenga más de 3 préstamos activos
+        // Verificar que no tenga mas de 3 prestamos
         long prestamosActivos = memoria.stream()
                 .filter(p -> p.getUsuario().getId() == idUsuario ).count();
 
@@ -69,7 +69,7 @@ public class PrestamoServ {
             return;
         }
 
-        // Verificar que el usuario no tenga una penalización activa
+        // Verificar que el usuario no tenga una penalización
         if (usuario.getPenalizacionHasta() != null) {
             System.out.println("El usuario tiene una penalización activa hasta " + usuario.getPenalizacionHasta() + ".");
         }
@@ -88,11 +88,11 @@ public class PrestamoServ {
         System.out.println("Préstamo registrado correctamente.");
     }
 
-    public void registrarDevolucionPrestamo() {
+    public void registrarDevolucion() {
         System.out.println("Introduce el id del préstamo a devolver: ");
         int idPrestamo = sc.nextInt();
 
-        // Recuperar el préstamo desde la base de datos
+        // Recuperar el préstamo
         Prestamo prestamo = prestamoDAO.getPrestamoId(idPrestamo);
         Ejemplar ejemplar = prestamo.getEjemplar();
         Usuario usuario = prestamo.getUsuario();
@@ -127,7 +127,7 @@ public class PrestamoServ {
 
 
 
-    public void eliminarPrestamoMemoria() {
+    public void eliminarPrestamo() {
         System.out.println("Introduce el id del prestamo a eliminar: ");
         int id = Integer.parseInt(sc.nextLine());
         if (prestamoDAO.getPrestamoId(id) != null) {

@@ -21,13 +21,13 @@ public class LibroServ {
         listaLibrosMemoria = libroDAO.listarLibros();
     }
 
-    public void listarLibrosMemoria() {
+    public void listarLibros() {
         for (Libro libro : listaLibrosMemoria) {
             System.out.println(libro);
         }
     }
 
-    public void añadirLibroMemoria() {
+    public void añadirLibro() {
         System.out.println("Introduce ISBN del libro: ");
         String ISBN = teclado.nextLine();
         System.out.println("Introduce titulo del libro: ");
@@ -38,7 +38,7 @@ public class LibroServ {
         libroDAO.insertarLibro(libro);
     }
 
-    public void eliminarLibroMemoria() {
+    public void eliminarLibro() {
         System.out.println("Introduce el ISBN del libro a eliminar");
         String ISBN = teclado.nextLine();
         if (libroDAO.getLibroIsbn(ISBN) != null) {

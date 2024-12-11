@@ -107,4 +107,17 @@ public class Usuario {
         this.prestamos = prestamos;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", dni='" + dni + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", tipo='" + tipo + '\'' +
+                ", penalizacionHasta=" + penalizacionHasta +
+                ", prestamos=" + prestamos +
+                '}';
+    }
 }

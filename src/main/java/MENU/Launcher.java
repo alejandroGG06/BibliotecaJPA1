@@ -31,7 +31,7 @@ public class Launcher {
             switch (opcion) {
                 case 1 -> { // Inicio de sesión como Usuario
                     System.out.print("Ingrese su ID de Usuario: ");
-                    if (usuarioService.esUsuario()) {
+                    if (usuarioService.UserNormal()) {
                         int opcionUsuario;
                         do {
                             System.out.println("-----------------");
@@ -53,7 +53,7 @@ public class Launcher {
                     }
                 }
                 case 2 -> { // Inicio de sesión como Administrador
-                    if (usuarioService.esAdministrador()) {
+                    if (usuarioService.USerAdmin()) {
                         int opcionAdmin;
                         do {
                             System.out.println("---------------------");
@@ -70,6 +70,7 @@ public class Launcher {
                             System.out.println("10. Listar prestamos");
                             System.out.println("11. Eliminar prestamo");
                             System.out.println("12. Devolver prestamo");
+                            System.out.println("13. Eliminar Usuario");
 
                             System.out.println("0. Volver al menú principal");
                             System.out.print("Elige una opción: ");
@@ -77,18 +78,19 @@ public class Launcher {
 
                             switch (opcionAdmin) {
                                 case 0 -> System.out.println("Regresando al menú principal...");
-                                case 1-> libroService.añadirLibroMemoria();
-                                case 2 -> libroService.listarLibrosMemoria();
-                                case 3-> libroService.eliminarLibroMemoria();
-                                case 4-> ejemplarService.contarEjemplaresDisponibles();
-                                case 5->ejemplarService.añadirEjemplarMemoria();
-                                case 6->ejemplarService.listarEjemplarMemoria();
-                                case 7->usuarioService.registrarUsuarioMemoria();
-                                case 8-> usuarioService.registrarPenalizacion();
-                                case 9->prestamoService.registrarPrestamoMemoria();
-                                case 10->prestamoService.listarPrestamosMemoria();
-                                case 11->prestamoService.eliminarPrestamoMemoria();
-                                case 12->prestamoService.registrarDevolucionPrestamo();
+                                case 1-> libroService.añadirLibro();
+                                case 2 -> libroService.listarLibros();
+                                case 3-> libroService.eliminarLibro();
+                                case 4-> ejemplarService.contarEjemplares();
+                                case 5->ejemplarService.añadirEjemplar();
+                                case 6->ejemplarService.listarEjemplar();
+                                case 7->usuarioService.registrarUsuario();
+                                case 8-> usuarioService.Penalizacion();
+                                case 9->prestamoService.registrarPrestamo();
+                                case 10->prestamoService.listarPrestamos();
+                                case 11->prestamoService.eliminarPrestamo();
+                                case 12->prestamoService.registrarDevolucion();
+                                case 13 ->usuarioService.eliminarUsuario();
                             }
                         } while (opcionAdmin != 0);
                     }

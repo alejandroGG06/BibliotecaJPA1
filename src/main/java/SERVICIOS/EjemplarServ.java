@@ -24,13 +24,13 @@ public class EjemplarServ {
         listaEjemplaresMemoria = ejemplarDAO.listarEjemplares();
     }
 
-    public void listarEjemplarMemoria() {
+    public void listarEjemplar() {
         for (Ejemplar ejemplar : listaEjemplaresMemoria) {
             System.out.println(ejemplar);
         }
     }
 
-    public void añadirEjemplarMemoria() {
+    public void añadirEjemplar() {
         System.out.println("Introduce el ISBN del libro asociado: ");
         String isbn = teclado.nextLine();  // Consumir el salto de línea
         System.out.println("Introduce el estado del ejemplar (Disponible, Prestado, Dañado,nuevo): ");
@@ -42,16 +42,10 @@ public class EjemplarServ {
     }
 
 
-    public void eliminarEjemplarMemoria(){
-        System.out.println("Introduce el id del ejemplar a eliminar: ");
-        int id = Integer.parseInt(teclado.nextLine());
-        if (ejemplarDAO.getEjemplarId(id) != null) {
-            ejemplarDAO.eliminarEjemplares(ejemplarDAO.getEjemplarId(id));
-        }
-    }
+
 
     //Metodo para saber cuantos ejemplares están en disponible
-    public void contarEjemplaresDisponibles() {
+    public void contarEjemplares() {
         List<Ejemplar> listaEjemplaresDisponibles = new ArrayList<>();
         for (Ejemplar ejemplar : listaEjemplaresMemoria) {
             if ("disponible".equals(ejemplar.getEstado())) {

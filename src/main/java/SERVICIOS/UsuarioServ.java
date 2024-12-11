@@ -32,7 +32,7 @@ public class UsuarioServ {
         }
     }
 
-    public void registrarUsuarioMemoria() {
+    public void registrarUsuario() {
         System.out.println("Introduce el DNI del usuario: ");
         String dni = teclado.nextLine();
         System.out.println("Introduce el nombre del usuario: ");
@@ -48,7 +48,7 @@ public class UsuarioServ {
         usuarioDAO.insertarUsuario(usuario);
     }
 
-    public boolean esAdministrador() {
+    public boolean USerAdmin() {
         System.out.println("Ingrese su id: ");
         int id = teclado.nextInt();
         teclado.nextLine();  // Limpiar el buffer de la línea restante
@@ -57,7 +57,7 @@ public class UsuarioServ {
 
         for (Usuario usuario : listaUsuariosMemoria) {
             if (usuario.getId() == id) {
-                // ID correcto, ahora verificamos la contraseña
+
                 System.out.println("ID correcto");
 
                 if (usuario.getPassword().equals(contraseña)) {
@@ -83,7 +83,7 @@ public class UsuarioServ {
     }
 
 
-    public boolean esUsuario() {
+    public boolean UserNormal() {
         System.out.println("Ingrese su id: ");
         int id = teclado.nextInt();
         teclado.nextLine();  // Limpiar el buffer de la línea restante
@@ -118,7 +118,7 @@ public class UsuarioServ {
     }
 
 
-    public void eliminarUsuarioMemoria() {
+    public void eliminarUsuario() {
         System.out.println("Introduce el id del usuario a eliminar: ");
         int id = teclado.nextInt();
         if (usuarioDAO.getUsuarioId(id)!= null){
@@ -126,7 +126,7 @@ public class UsuarioServ {
         }
     }
 
-    public void registrarPenalizacion() {
+    public void Penalizacion() {
         System.out.println("Introduce el id del usuario que quieres penalizar: ");
         int id = teclado.nextInt();
 
