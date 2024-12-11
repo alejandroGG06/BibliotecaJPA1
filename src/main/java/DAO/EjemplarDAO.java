@@ -10,9 +10,9 @@ import java.util.List;
 
 public class EjemplarDAO {
 
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistencia");
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("persist");
     EntityManager em = emf.createEntityManager();
-    EntityTransaction transaccion = em.getTransaction();
+    EntityTransaction tx = em.getTransaction();
 
     public List<Ejemplar> listarEjemplares(){
         List<Ejemplar> listaEjemplares = em.createQuery("select e from Ejemplar e").getResultList();
@@ -23,21 +23,21 @@ public class EjemplarDAO {
     }
 
     public void insertarEjemplares (Ejemplar ejemplar){
-        transaccion.begin();
+        tx.begin();
         em.persist(ejemplar);
-        transaccion.commit();
+        tx.commit();
     }
 
     public void eliminarEjemplares (Ejemplar ejemplar){
-        transaccion.begin();
+        tx.begin();
         em.remove(ejemplar);
-        transaccion.commit();
+        tx.commit();
     }
 
     public void modificarEjemplares (Ejemplar ejemplar){
-        transaccion.begin();
+        tx.begin();
         em.merge(ejemplar);
-        transaccion.commit();
+        tx.commit();
     }
 
     public Ejemplar getEjemplarId (int id){

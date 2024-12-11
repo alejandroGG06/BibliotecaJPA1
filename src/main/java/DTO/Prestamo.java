@@ -30,6 +30,13 @@ public class Prestamo {
     @Column(name = "fechaDevolucion")
     private LocalDate fechaDevolucion;
 
+    public Prestamo(Usuario usuario, Ejemplar ejemplar, LocalDate fechaPrestamo, LocalDate fechaDevolucion) {
+    }
+
+    public Prestamo() {
+
+    }
+
     public Integer getId() {
         return id;
     }

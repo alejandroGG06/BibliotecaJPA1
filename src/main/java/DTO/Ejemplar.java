@@ -5,12 +5,23 @@ import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
-
 @Entity
 @Table(name = "ejemplar")
 public class Ejemplar {
+
+    public Ejemplar(Integer id, Libro isbn, String estado) {
+        this.id = id;
+        this.isbn = isbn;
+        this.estado = estado;
+    }
+
+    public Ejemplar(String estado) {
+        this.estado = estado;
+    }
+
+    public Ejemplar() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -19,15 +30,15 @@ public class Ejemplar {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "isbn", nullable = false)
-    private DTO.Libro isbn;
+    private Libro isbn;
 
     @ColumnDefault("'Disponible'")
     @Lob
     @Column(name = "estado")
     private String estado;
 
-    @OneToMany(mappedBy = "ejemplar")
-    private Set<DTO.Prestamo> prestamos = new LinkedHashSet<>();
+    public Ejemplar(Libro libro, String estado) {
+    }
 
     public Integer getId() {
         return id;
@@ -37,11 +48,11 @@ public class Ejemplar {
         this.id = id;
     }
 
-    public DTO.Libro getIsbn() {
+    public Libro getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(DTO.Libro isbn) {
+    public void setIsbn(Libro isbn) {
         this.isbn = isbn;
     }
 
@@ -53,12 +64,12 @@ public class Ejemplar {
         this.estado = estado;
     }
 
-    public Set<DTO.Prestamo> getPrestamos() {
-        return prestamos;
+    @Override
+    public String toString() {
+        return "Ejemplar{" +
+                "id=" + id +
+                ", isbn=" + isbn +
+                ", estado='" + estado + '\'' +
+                '}';
     }
-
-    public void setPrestamos(Set<DTO.Prestamo> prestamos) {
-        this.prestamos = prestamos;
-    }
-
 }

@@ -36,6 +36,13 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario")
     private Set<Prestamo> prestamos = new LinkedHashSet<>();
 
+    public Usuario(String dni, String nombre, String email, String contrasena, String tipo) {
+    }
+
+    public Usuario() {
+
+    }
+
     public Integer getId() {
         return id;
     }

@@ -9,7 +9,7 @@ import jakarta.persistence.Persistence;
 import java.util.List;
 
 public class PrestamoDAO {
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistencia");
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("persist");
     EntityManager em = emf.createEntityManager();
     EntityTransaction transaccion = em.getTransaction();
 

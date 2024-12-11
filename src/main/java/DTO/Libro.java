@@ -21,6 +21,13 @@ public class Libro {
     @OneToMany(mappedBy = "isbn")
     private Set<Ejemplar> ejemplars = new LinkedHashSet<>();
 
+    public Libro(String isbn, String titulo, String autor) {
+    }
+
+    public Libro() {
+
+    }
+
     public String getIsbn() {
         return isbn;
     }

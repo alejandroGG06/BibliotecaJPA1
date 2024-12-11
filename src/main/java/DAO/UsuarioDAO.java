@@ -9,7 +9,7 @@ import jakarta.persistence.Persistence;
 import java.util.List;
 
 public class UsuarioDAO {
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistencia");
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("persist");
     EntityManager em = emf.createEntityManager();
     EntityTransaction transaccion = em.getTransaction();
 
@@ -25,21 +25,21 @@ public class UsuarioDAO {
 
 
     public  void insertarUsuario(Usuario usuario) {
-        em.getTransaction().begin();
+        transaccion.begin();
         em.persist(usuario);
-        em.getTransaction().commit();
+        transaccion.commit();
     }
 
     public  void eliminarUsuario(Usuario usuario) {
-        em.getTransaction().begin();
+        transaccion.begin();
         em.remove(usuario);
-        em.getTransaction().commit();
+        transaccion.commit();
     }
 
     public  void actualizarUsuario(Usuario usuario) {
-        em.getTransaction().begin();
+        transaccion.begin();
         em.merge(usuario);
-        em.getTransaction().commit();
+        transaccion.commit();
     }
 
     public Usuario getUsuarioId(int id) {
