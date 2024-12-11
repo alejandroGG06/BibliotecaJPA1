@@ -43,10 +43,12 @@ public class Launcher {
                             opcionUsuario = teclado.nextInt();
 
                             switch (opcionUsuario) {
-                                case 0 -> System.out.println("Regresando al menú principal...");
-                                case 1 -> prestamoService.listarPrestamosMemoriaDeUsuario();
-                                case 2 -> usuarioService.listarUsuariosMemoriaDeUsuario();
-
+                                case 0: System.out.println("Regresando al menú principal...");
+                                break;
+                                case 1: prestamoService.listarPrestamosMemoriaDeUsuario();
+                                break;
+                                case 2: usuarioService.listarUsuariosMemoriaDeUsuario();
+                                break;
 
                             }
                         } while (opcionUsuario != 0);
@@ -77,20 +79,35 @@ public class Launcher {
                             opcionAdmin = teclado.nextInt();
 
                             switch (opcionAdmin) {
-                                case 0 -> System.out.println("Regresando al menú principal...");
-                                case 1-> libroService.añadirLibro();
-                                case 2 -> libroService.listarLibros();
-                                case 3-> libroService.eliminarLibro();
-                                case 4-> ejemplarService.contarEjemplares();
-                                case 5->ejemplarService.añadirEjemplar();
-                                case 6->ejemplarService.listarEjemplar();
-                                case 7->usuarioService.registrarUsuario();
-                                case 8-> usuarioService.Penalizacion();
-                                case 9->prestamoService.registrarPrestamo();
-                                case 10->prestamoService.listarPrestamos();
-                                case 11->prestamoService.eliminarPrestamo();
-                                case 12->prestamoService.registrarDevolucion();
-                                case 13 ->usuarioService.eliminarUsuario();
+                                case 0:
+                                    System.out.println("Regresando al menú principal...");
+                                    break;
+                                case 1: libroService.añadirLibro();
+                                break;
+                                case 2: libroService.listarLibros();
+                                break;
+                                case 3:libroService.eliminarLibro();
+                                break;
+                                case 4: ejemplarService.contarEjemplares();
+                                break;
+                                case 5:ejemplarService.añadirEjemplar();
+                                break;
+                                case 6:ejemplarService.listarEjemplar();
+                                break;
+                                case 7:usuarioService.registrarUsuario();
+                                break;
+                                case 8: usuarioService.Penalizacion();
+                                break;
+                                case 9:prestamoService.registrarPrestamo();
+                                break;
+                                case 10:prestamoService.listarPrestamos();
+                                break;
+                                case 11:prestamoService.eliminarPrestamo();
+                                break;
+                                case 12:prestamoService.registrarDevolucion();
+                                break;
+                                case 13:usuarioService.eliminarUsuario();
+                                break;
                             }
                         } while (opcionAdmin != 0);
                     }
