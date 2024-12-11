@@ -66,33 +66,32 @@ public class UsuarioServ {
                     // Verificamos si es un administrador
                     if (usuario.getTipo().equals("administrador")) {
                         System.out.println("Inicio de sesión correcta");
-                        return true;  // Es administrador
+                        return true;
                     } else {
                         System.out.println("Acceso denegado.");
-                        return false;  // No es administrador
+                        return false;
                     }
                 } else {
                     System.out.println("Contraseña incorrecta");
-                    return false;  // Contraseña incorrecta
+                    return false;
                 }
             }
         }
 
         System.out.println("ID incorrecto");
-        return false;  // El ID no fue encontrado
+        return false;
     }
 
 
     public boolean UserNormal() {
         System.out.println("Ingrese su id: ");
         int id = teclado.nextInt();
-        teclado.nextLine();  // Limpiar el buffer de la línea restante
+
         System.out.println("Introduce su contraseña: ");
         String contraseña = teclado.nextLine();
 
         for (Usuario usuario : listaUsuariosMemoria) {
             if (usuario.getId() == id) {
-                // ID correcto, ahora verificamos la contraseña
                 System.out.println("ID correcto");
 
                 if (usuario.getPassword().equals(contraseña)) {
@@ -101,20 +100,20 @@ public class UsuarioServ {
                     // Verificamos si es un usuario normal
                     if (usuario.getTipo().equals("normal")) {
                         System.out.println("Inicio de sesión correcta.");
-                        return true;  // Es usuario normal
+                        return true;
                     } else {
                         System.out.println("Acceso denegado.");
-                        return false;  // No es un usuario normal
+                        return false;
                     }
                 } else {
                     System.out.println("Contraseña incorrecta");
-                    return false;  // Contraseña incorrecta
+                    return false;
                 }
             }
         }
 
         System.out.println("ID incorrecto");
-        return false;  // El ID no fue encontrado
+        return false;
     }
 
 
