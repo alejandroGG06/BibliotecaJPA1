@@ -40,6 +40,9 @@ public class Ejemplar {
     public Ejemplar(Libro libro, String estado) {
     }
 
+    public Ejemplar(String estado, Libro libroIsbn) {
+    }
+
     public Integer getId() {
         return id;
     }
